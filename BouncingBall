@@ -1,0 +1,34 @@
+int Radius = 25;
+float xpos, ypos;
+
+float xspeed=20;
+float yspeed=20;
+
+int xdirection=-1;
+int ydirection=1;
+
+
+void setup(){
+
+size(720,810);
+noStroke();
+frameRate(20);
+ellipseMode(Radius);
+xpos = width/2;
+ypos = height/2;
+}
+
+void draw(){
+
+  background(200);
+  fill(0,155,155);
+  xpos = xpos + (xspeed * xdirection);
+  ypos = ypos + (yspeed * ydirection);
+  if(xpos > width-Radius || xpos < Radius){
+    xdirection*= -1;
+  }
+  if (ypos > height-Radius || ypos < Radius){
+    ydirection*= -1;
+  }
+  ellipse(xpos, ypos, Radius, Radius);
+}
